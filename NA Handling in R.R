@@ -24,7 +24,7 @@ replace_na <- function(x,int_replacement=0,char_replacement='Missing'){
   x[which(is.na(x))] <- ifelse(type=='numeric'|type=='integer',int_replacement,char_replacement)
 
   if(type=='factor'){
-    newlevs <- c(levs,'Missing')
+    newlevs <- c(levs,char_replacement)
     x <- factor(x,levels=newlevs)
   }else{
     class(x) <- type
